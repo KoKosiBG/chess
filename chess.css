@@ -523,6 +523,10 @@ box-shadow: 0px 0px 29px 0px rgba(114,157,242,1);
     .box{
         font-size: 25px; 
     }
+    #playerOne, #playerTwo{
+        width: 100px;
+        height: 25px;
+    }
 
 
   }
