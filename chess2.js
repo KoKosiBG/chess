@@ -28,6 +28,20 @@ whiteImage.addEventListener("click", () => {
   ];
   white = true;
 });
+let gap = 0
+
+function myFunction(x) {
+  if (x.matches) { // If media query matches
+    gap = 20
+  }
+   else {
+    gap = 0
+  }
+}
+
+var x = window.matchMedia("(max-width: 800px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
 
 blackImage.addEventListener("click", () => {
   whiteImage.style.border = "none";
@@ -171,6 +185,10 @@ function SettingPieces() {
 }
 
 window.addEventListener("resize", () => {
+  Reszize(gap)
+});
+
+function Reszize(gap) {
   playerOne.style.transition = "none";
   playerTwo.style.transition = "none";
   let promotion = document.getElementById("promotion");
@@ -183,8 +201,8 @@ window.addEventListener("resize", () => {
 
   // playerTwo.style.top =  String((Number(rect.bottom) - 19.7)) + "px"
   // playerOne.style.top =  String((Number(rect.top) - 60)) + "px"
-  playerOne.style.top = String(Number(rect.top) - 70) + "px";
-  playerTwo.style.top = String(Number(rect.bottom) + 20) + "px";
+  playerOne.style.top = String(Number(rect.top) - 70 + gap) + "px";
+  playerTwo.style.top = String(Number(rect.bottom) + 20 ) + "px";
 
   // resign.style.top = playerOne.style.top
   // resign2.style.top = playerTwo.style.top
@@ -199,12 +217,14 @@ window.addEventListener("resize", () => {
   resign2.style.top = playerTwo.style.top;
   resign2.style.left = resign.style.left;
 
+  rectResign = resign.getBoundingClientRect()
+
   draw.style.top = playerOne.style.top;
-  draw.style.left = rectPlayer.right + 70 + "px";
+  draw.style.left = rectResign.right + 15 + "px";
 
   draw2.style.top = playerTwo.style.top;
   draw2.style.left = draw.style.left;
-});
+}
 // Chnaging cursot //
 
 squares.forEach((element) => {
