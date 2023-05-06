@@ -28,6 +28,21 @@ whiteImage.addEventListener("click", () => {
   ];
   white = true;
 });
+
+let details = navigator.userAgent;
+      
+      /* Creating a regular expression
+      containing some mobile devices keywords
+      to search it in details string*/
+      let regexp = /android|iphone|kindle|ipad/i;
+      
+      /* Using test() method to search regexp in details
+      it returns boolean value*/
+      let isMobileDevice = regexp.test(details);
+      
+      if (isMobileDevice) {
+         alert()
+      } 
 let gap = 0
 
 function myFunction(x) {
@@ -220,7 +235,7 @@ function Reszize(gap) {
   rectResign = resign.getBoundingClientRect()
 
   draw.style.top = playerOne.style.top;
-  draw.style.left = rectResign.right + 15 + "px";
+  draw.style.left = rectResign.right + 10 + "px";
 
   draw2.style.top = playerTwo.style.top;
   draw2.style.left = draw.style.left;
